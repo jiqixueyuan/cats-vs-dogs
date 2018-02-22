@@ -51,9 +51,9 @@ def get_batch(image, label, image_W, image_H, batch_size, capacity):
 	image = tf.image.per_image_standardization(image)
 
 	image_batch, label_batch = tf.train.batch([image, label],
-												batch_size = batch_size,
-												num_threads = 16,
-												capacity = capacity)
+						batch_size = batch_size,
+						num_threads = 16,
+						capacity = capacity)
 	label_batch = tf.reshape(label_batch,[batch_size])
 	image_batch = tf.cast(image_batch, tf.float32)
 	return image_batch, label_batch
